@@ -47,7 +47,6 @@ Contributions from community are key to make NodejsGoat a comprehensive and matu
 * [GitHub's git tutorial](http://try.github.io/)
 * [git - the simple guide](http://rogerdudler.github.io/git-guide/)
 * [git tutorials and workflows](https://www.atlassian.com/git/tutorial)
-* [Pro Git book](http://git-scm.com/book)
 
 ### Ways to Contribute
 
