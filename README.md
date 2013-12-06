@@ -13,7 +13,7 @@ How to Install and Run NodejsGoat
 
 ### Getting a Copy of the Code
 
-Open a command prompt / terminal window and run the command below from the parent directory inside which you would like the NodejsGoat code copied 
+Open a command prompt / terminal window and run the command below from the parent directory inside which you would like the NodejsGoat code copied.
 
 ```
 git clone https://github.com/OWASP/NodejsGoat.git
@@ -35,13 +35,14 @@ This starts the NodejsGoat application at url http://localhost:5000/
 
 ### Customizing the Default Application Configuration
 
-The default application settings (database url, http port, etc.) are configured at [config/env/all.js](https://github.com/OWASP/NodejsGoat/blob/master/config/env/all.js), which can be modified if needed.
+The default application settings (database url, http port, etc.) can be changed by updating the [config file] (https://github.com/OWASP/NodejsGoat/blob/master/config/env/all.js).
 
 
 Contributing
 =================================
 
-Contributions from community are key to make NodejsGoat a comprehensive and mature resource. Make NodejsGoat awesome together!
+Contributions from community are key to make NodejsGoat a high quality comprehensive resource. Make NodejsGoat awesome together!
+
 
 **New to git?** You may find these resources helpful:
 * [GitHub's git tutorial](http://try.github.io/)
@@ -52,9 +53,9 @@ Contributions from community are key to make NodejsGoat a comprehensive and matu
 
 Depending on your preference, you can contribute in various ways:
 * Suggest a vulnerability that can be demonstrated through NodejsGoat web app. Start by posting a message on [NodejsGoat Google Group](https://groups.google.com/forum/#!forum/nodejsgoat) to initiate discussion on it.
-* Code vulnerability in the demo web application
+* Implement vulnerability in the demo web application
 * Document vulnerabilities in the tutorial guide
-* Add bootstrap tour steps to walk user through the steps to expose vulnerabilities
+* Add to the in-app tour to walk user through the steps to expose vulnerabilities
 * Add tests to failing test suite guide, which contains tests that pass as user fixes vulnerabilities
 * Create screencasts to demonstrate how to fix vulnerabilities
 
@@ -67,9 +68,9 @@ Depending on your preference, you can contribute in various ways:
   ```
   grunt precommit
   ```
-  This command indents code using 'js-beautifier' and shows any jsHint errors. These [coding conventions](https://github.com/OWASP/NodejsGoat/blob/master/.jshintrc) are checked using jsHint. Resolve all jsHint errors before committing the code.
+  This command indents code using `js-beautifier` and shows any `jsHint` errors. These [coding conventions](https://github.com/OWASP/NodejsGoat/blob/master/.jshintrc) are checked using `jsHint`. Resolve all `jsHint` errors before committing the code.
 
-4. Commit the changes with [issue number in commit message](https://help.github.com/articles/closing-issues-via-commit-messages)
+4. Commit the changes by adding [issue number into a commit message](https://help.github.com/articles/closing-issues-via-commit-messages)
 
 ### Contributors
 Here are the amazing [contributors](https://github.com/OWASP/NodejsGoat/graphs/contributors) to NodejsGoat project
