@@ -1,4 +1,4 @@
-var bcrypt = require('bcrypt-nodejs');
+var bcrypt = require("bcrypt-nodejs");
 
 /* The UserDAO must be constructed with a connected database object */
 function UserDAO(db) {
@@ -7,7 +7,7 @@ function UserDAO(db) {
     /* If this constructor is called without the "new" operator, "this" points
      * to the global object. Log a warning and call it correctly. */
     if (false === (this instanceof UserDAO)) {
-        console.log('Warning: UserDAO constructor called without "new" operator');
+        console.log("Warning: UserDAO constructor called without 'new' operator");
         return new UserDAO(db);
     }
 
@@ -17,14 +17,14 @@ function UserDAO(db) {
 
         // Generate password hash
         var salt = bcrypt.genSaltSync();
-        var password_hash = bcrypt.hashSync(password, salt);
+        var passwordHash = bcrypt.hashSync(password, salt);
 
         // Create user document
         var user = {
-            '_id': username,
-            'firstname': firstname,
-            'lastname': lastname,
-            'password': password_hash
+            _id: username,
+            firstname: firstname,
+            lastname: lastname,
+            password: passwordHash
         };
 
         // Add email if set
@@ -56,27 +56,27 @@ function UserDAO(db) {
                 if (bcrypt.compareSync(password, user.password)) {
                     callback(null, user);
                 } else {
-                    var invalid_password_error = new Error("Invalid password");
+                    var invalidPasswordError = new Error("Invalid password");
                     // Set an extra field so we can distinguish this from a db error
-                    invalid_password_error.invalid_password = true;
-                    callback(invalid_password_error, null);
+                    invalidPasswordError.invalidPassword = true;
+                    callback(invalidPasswordError, null);
                 }
             } else {
-                var no_such_user_error = new Error("User: " + user + " does not exist");
+                var noSuchUserError = new Error("User: " + user + " does not exist");
                 // Set an extra field so we can distinguish this from a db error
-                no_such_user_error.no_such_user = true;
-                callback(no_such_user_error, null);
+                noSuchUserError.noSuchUser = true;
+                callback(noSuchUserError, null);
             }
         }
 
         users.findOne({
-            '_id': username
+            _id: username
         }, validateUserDoc);
     };
 
     this.getUserById = function(_id, callback) {
         users.findOne({
-            '_id': _id
+            _id: _id
         }, callback);
     };
 }

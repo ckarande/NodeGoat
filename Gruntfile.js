@@ -27,10 +27,13 @@ function configureGrunt(grunt) {
             }
         },
         jshint: {
-            all: ["Gruntfile.js", "test/**/*.js", "app/assets/js/**", "app/data/**/*.js", "app/routes/**/*.js", "server.js"]
+            all: ["test/**/*.js", "config/**", "app/assets/js/**", "app/data/**/*.js", "app/routes/**/*.js", "server.js"],
+            options: {
+                jshintrc: true
+            }
         },
         jsbeautifier: {
-            files: ["Gruntfile.js", "app/views/**", "app/assets/js/**", "app/assets/css/**", "app/data/**/*.js", "app/routes/**/*.js", "server.js", "test/**/*.js"],
+            files: ["Gruntfile.js", "config/**", "app/views/**", "app/assets/js/**", "app/assets/css/**", "app/data/**/*.js", "app/routes/**/*.js", "server.js", "test/**/*.js"],
             options: {
                 html: {
                     braceStyle: "collapse",
@@ -110,7 +113,7 @@ function configureGrunt(grunt) {
     grunt.loadNpmTasks("grunt-nodemon");
     grunt.loadNpmTasks("grunt-concurrent");
     grunt.loadNpmTasks("grunt-env");
-    grunt.loadNpmTasks('grunt-jsbeautifier');
+    grunt.loadNpmTasks("grunt-jsbeautifier");
 
     // Making grunt default to force in order not to break the project.
     grunt.option("force", true);

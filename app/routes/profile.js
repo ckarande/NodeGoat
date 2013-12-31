@@ -1,5 +1,5 @@
-var ProfileDAO = require('../data/profile-dao').ProfileDAO;
-var SessionDAO = require('../data/session-dao').SessionDAO;
+var ProfileDAO = require("../data/profile-dao").ProfileDAO;
+var SessionDAO = require("../data/session-dao").SessionDAO;
 
 /* The ProfileHandler must be constructed with a connected db */
 function ProfileHandler(db) {
@@ -10,9 +10,9 @@ function ProfileHandler(db) {
 
     this.displayProfile = function(req, res, next) {
 
-        var session_id = req.cookies.session;
+        var sessionId = req.cookies.session;
 
-        session.getUsername(session_id, function(err, username) {
+        session.getUsername(sessionId, function(err, username) {
 
             if (err) return next(err);
 
@@ -20,7 +20,7 @@ function ProfileHandler(db) {
 
                 if (error) return next(error);
 
-                return res.render('profile', user);
+                return res.render("profile", user);
             });
 
         });
@@ -34,9 +34,9 @@ function ProfileHandler(db) {
         var dob = req.body.dob;
         var address = req.body.address;
 
-        var session_id = req.cookies.session;
+        var sessionId = req.cookies.session;
 
-        session.getUsername(session_id, function(err, username) {
+        session.getUsername(sessionId, function(err, username) {
 
             if (err) return next(err);
 
@@ -45,7 +45,7 @@ function ProfileHandler(db) {
                 if (err) return next(err);
 
                 user.updateSuccess = true;
-                return res.render('profile', user);
+                return res.render("profile", user);
             });
         });
     };

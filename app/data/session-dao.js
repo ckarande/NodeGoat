@@ -1,4 +1,4 @@
-var crypto = require('crypto');
+var crypto = require("crypto");
 
 /* The SessionDAO must be constructed with a connected database object */
 function SessionDAO(db) {
@@ -7,7 +7,7 @@ function SessionDAO(db) {
     /* If this constructor is called without the "new" operator, "this" points
      * to the global object. Log a warning and call it correctly. */
     if (false === (this instanceof SessionDAO)) {
-        console.log('Warning: SessionDAO constructor called without "new" operator');
+        console.log("Warning: SessionDAO constructor called without 'new' operator");
         return new SessionDAO(db);
     }
 
@@ -15,40 +15,40 @@ function SessionDAO(db) {
 
     this.startSession = function(username, callback) {
         // Generate session id
-        var current_date = (new Date()).valueOf().toString();
+        var currentDate = (new Date()).valueOf().toString();
         var random = Math.random().toString();
-        var session_id = crypto.createHash('sha1').update(current_date + random).digest('hex');
+        var sessionId = crypto.createHash("sha1").update(currentDate + random).digest("hex");
 
         // Create session document
         var session = {
-            'username': username,
-            '_id': session_id
+            username: username,
+            _id: sessionId
         };
 
         // Insert session document
         sessions.insert(session, function(err, result) {
-            callback(err, session_id);
+            callback(err, sessionId);
         });
     };
 
-    this.endSession = function(session_id, callback) {
+    this.endSession = function(sessionId, callback) {
         // Remove session document
         sessions.remove({
-            '_id': session_id
+            _id: sessionId
         }, function(err, numRemoved) {
             callback(err);
         });
     };
 
-    this.getUsername = function(session_id, callback) {
+    this.getUsername = function(sessionId, callback) {
 
-        if (!session_id) {
+        if (!sessionId) {
             callback(new Error("Session not set"), null);
             return;
         }
 
         sessions.findOne({
-            '_id': session_id
+            _id: sessionId
         }, function(err, session) {
 
             if (err) return callback(err, null);
