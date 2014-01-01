@@ -1,5 +1,9 @@
+var UserDAO = require("./user-dao").UserDAO;
+
+
 /* The ContributionsDAO must be constructed with a connected database object */
 function ContributionsDAO(db) {
+
     "use strict";
 
     /* If this constructor is called without the "new" operator, "this" points
@@ -10,6 +14,8 @@ function ContributionsDAO(db) {
     }
 
     var contributionsDB = db.collection("contributions");
+    var userDAO = new UserDAO(db);
+
 
     this.update = function(username, pretax, aftertax, roth, callback) {
 
@@ -40,8 +46,22 @@ function ContributionsDAO(db) {
         contributionsDB.findOne({
             _id: username
         }, function(err, contributions) {
+
             if (err) return callback(err, null);
-            callback(null, contributions);
+
+            userDAO.getUserByUsername(username, function(err, user) {
+
+                if (err) return callback(err, null);
+
+                // add user details
+                contributions.username = user.username;
+                contributions.userid = user._id;
+                contributions.firstname = user.firstname;
+                contributions.lastname = user.lastname;
+
+                callback(null, contributions);
+            });
+
         });
     };
 }

@@ -35,7 +35,7 @@ function ContributionsHandler(db) {
         var aftertax = eval(req.body.aftertax);
         var roth = eval(req.body.roth);
         */
-        
+
         var pretax = parseInt(req.body.pretax);
         var aftertax = parseInt(req.body.aftertax);
         var roth = parseInt(req.body.roth);

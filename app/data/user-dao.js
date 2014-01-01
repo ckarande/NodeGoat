@@ -2,6 +2,7 @@ var bcrypt = require("bcrypt-nodejs");
 
 /* The UserDAO must be constructed with a connected database object */
 function UserDAO(db) {
+
     "use strict";
 
     /* If this constructor is called without the "new" operator, "this" points
@@ -22,6 +23,7 @@ function UserDAO(db) {
         // Create user document
         var user = {
             _id: username,
+            userid: this.getNextSequence("userid"),
             firstname: firstname,
             lastname: lastname,
             password: passwordHash
@@ -74,10 +76,32 @@ function UserDAO(db) {
         }, validateUserDoc);
     };
 
-    this.getUserById = function(_id, callback) {
+
+    this.getUserByUsername = function(username, callback) {
         users.findOne({
-            _id: _id
+            _id: username,
         }, callback);
+    };
+
+    this.getUserById = function(userid, callback) {
+        users.findOne({
+            userid: userid
+        }, callback);
+    };
+
+    this.getNextSequence = function(name) {
+        var ret = db.collection("counters").findAndModify({
+            query: {
+                _id: name
+            },
+            update: {
+                $inc: {
+                    seq: 1
+                }
+            },
+            new: true
+        });
+        return ret.seq;
     };
 }
 

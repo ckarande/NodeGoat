@@ -1,5 +1,6 @@
 var UserDAO = require("../data/user-dao").UserDAO,
-    SessionDAO = require("../data/session-dao").SessionDAO;
+    SessionDAO = require("../data/session-dao").SessionDAO,
+    AllocationsDAO = require("../data/allocations-dao").AllocationsDAO;
 
 /* The SessionHandler must be constructed with a connected db */
 function SessionHandler(db) {
@@ -7,6 +8,7 @@ function SessionHandler(db) {
 
     var user = new UserDAO(db);
     var session = new SessionDAO(db);
+    var allocations = new AllocationsDAO(db);
 
     this.isLoggedInMiddleware = function(req, res, next) {
         var sessionId = req.cookies.session;
@@ -163,6 +165,10 @@ function SessionHandler(db) {
                     }
                 }
 
+                //prepare data for the user
+                this.prepareUserData(user, next);
+
+
                 session.startSession(user._id, function(err, sessionId) {
 
                     if (err) return next(err);
@@ -184,13 +190,25 @@ function SessionHandler(db) {
             return res.redirect("/login");
         }
 
-        user.getUserById(req.username, function(err, user) {
+        user.getUserByUserName(req.username, function(err, user) {
 
             if (err) return next(err);
 
             return res.render("dashboard", user);
         });
 
+    };
+
+    this.prepareUserData = function(user, next) {
+
+        // Generate random allocations
+        var stocks = Math.floor((Math.random() * 40) + 1);
+        var funds = Math.floor((Math.random() * 40) + 1);
+        var govbonds = 100 - stocks - funds;
+
+        allocations.update(stocks, funds, govbonds, function(err, allocations) {
+            if (err) return next(err);
+        });
     };
 }
 
