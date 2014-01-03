@@ -48,14 +48,15 @@ function AllocationsDAO(db) {
         }, function(err, allocations) {
 
             if (err) return callback(err, null);
+            console.log("userid = " + userid);
 
             userDAO.getUserById(userid, function(err, user) {
 
                 if (err) return callback(err, null);
 
                 // add user details
-                allocations.username = user.username;
-                allocations.userid = user._id;
+                allocations.username = user._id;
+                allocations.userid = userid;
                 allocations.firstname = user.firstname;
                 allocations.lastname = user.lastname;
 

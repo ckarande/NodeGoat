@@ -10,6 +10,63 @@ function SessionHandler(db) {
     var session = new SessionDAO(db);
     var allocations = new AllocationsDAO(db);
 
+    var validateSignup = function(username, firstname, lastname, password, verify, email, errors) {
+
+        var USER_RE = /^.{1,20}$/;
+        var FNAME_RE = /^.{1,100}$/;
+        var LNAME_RE = /^.{1,100}$/;
+        var PASS_RE = /^.{1,20}$/;
+        var EMAIL_RE = /^[\S]+@[\S]+\.[\S]+$/;
+
+        errors.usernameError = "";
+        errors.firstnameError = "";
+        errors.lastnameError = "";
+
+        errors.passwordError = "";
+        errors.verifyError = "";
+        errors.emailError = "";
+
+        if (!USER_RE.test(username)) {
+            errors.usernameError = "Invalid username.";
+            return false;
+        }
+        if (!FNAME_RE.test(firstname)) {
+            errors.firstnameError = "Invalid first name.";
+            return false;
+        }
+        if (!LNAME_RE.test(firstname)) {
+            errors.lastnameError = "Invalid last name.";
+            return false;
+        }
+        if (!PASS_RE.test(password)) {
+            errors.passwordError = "Invalid password.";
+            return false;
+        }
+        if (password !== verify) {
+            errors.verifyError = "Password must match";
+            return false;
+        }
+        if (email !== "") {
+            if (!EMAIL_RE.test(email)) {
+                errors.emailError = "Invalid email address";
+                return false;
+            }
+        }
+        return true;
+    };
+
+    var prepareUserData = function(user, next) {
+
+        // Generate random allocations
+        var stocks = Math.floor((Math.random() * 40) + 1);
+        var funds = Math.floor((Math.random() * 40) + 1);
+        var govbonds = 100 - (stocks + funds);
+
+        allocations.update(user.userid, stocks, funds, govbonds, function(err, allocations) {
+            if (err) return next(err);
+        });
+    };
+
     this.isLoggedInMiddleware = function(req, res, next) {
         var sessionId = req.cookies.session;
         session.getUsername(sessionId, function(err, username) {
@@ -90,50 +147,7 @@ function SessionHandler(db) {
         });
     };
 
-    function validateSignup(username, firstname, lastname, password, verify, email, errors) {
 
-        var USER_RE = /^.{1,20}$/;
-        var FNAME_RE = /^.{1,100}$/;
-        var LNAME_RE = /^.{1,100}$/;
-        var PASS_RE = /^.{1,20}$/;
-        var EMAIL_RE = /^[\S]+@[\S]+\.[\S]+$/;
-
-        errors.usernameError = "";
-        errors.firstnameError = "";
-        errors.lastnameError = "";
-
-        errors.passwordError = "";
-        errors.verifyError = "";
-        errors.emailError = "";
-
-        if (!USER_RE.test(username)) {
-            errors.usernameError = "Invalid username.";
-            return false;
-        }
-        if (!FNAME_RE.test(firstname)) {
-            errors.firstnameError = "Invalid first name.";
-            return false;
-        }
-        if (!LNAME_RE.test(firstname)) {
-            errors.lastnameError = "Invalid last name.";
-            return false;
-        }
-        if (!PASS_RE.test(password)) {
-            errors.passwordError = "Invalid password.";
-            return false;
-        }
-        if (password !== verify) {
-            errors.verifyError = "Password must match";
-            return false;
-        }
-        if (email !== "") {
-            if (!EMAIL_RE.test(email)) {
-                errors.emailError = "Invalid email address";
-                return false;
-            }
-        }
-        return true;
-    }
 
     this.handleSignup = function(req, res, next) {
 
@@ -166,7 +180,7 @@ function SessionHandler(db) {
                 }
 
                 //prepare data for the user
-                this.prepareUserData(user, next);
+                prepareUserData(user, next);
 
 
                 session.startSession(user._id, function(err, sessionId) {
@@ -190,7 +204,7 @@ function SessionHandler(db) {
             return res.redirect("/login");
         }
 
-        user.getUserByUserName(req.username, function(err, user) {
+        user.getUserByUsername(req.username, function(err, user) {
 
             if (err) return next(err);
 
@@ -199,17 +213,7 @@ function SessionHandler(db) {
 
     };
 
-    this.prepareUserData = function(user, next) {
 
-        // Generate random allocations
-        var stocks = Math.floor((Math.random() * 40) + 1);
-        var funds = Math.floor((Math.random() * 40) + 1);
-        var govbonds = 100 - stocks - funds;
-
-        allocations.update(stocks, funds, govbonds, function(err, allocations) {
-            if (err) return next(err);
-        });
-    };
 }
 
 module.exports = SessionHandler;

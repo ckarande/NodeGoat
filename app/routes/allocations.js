@@ -13,7 +13,7 @@ function AllocationsHandler(db) {
 
         var userid = req.params.userid;
 
-        allocationsDAO.getByUserid(userid, function(error, allocations) {
+        allocationsDAO.getByUserId(userid, function(error, allocations) {
 
             if (error) return next(error);
 

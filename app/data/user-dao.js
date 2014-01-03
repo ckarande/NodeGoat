@@ -23,7 +23,6 @@ function UserDAO(db) {
         // Create user document
         var user = {
             _id: username,
-            userid: this.getNextSequence("userid"),
             firstname: firstname,
             lastname: lastname,
             password: passwordHash
@@ -34,17 +33,22 @@ function UserDAO(db) {
             user.email = email;
         }
 
-        users.insert(user, function(err, result) {
+        this.getNextSequence("userid", function(userid) {
 
-            if (!err) {
-                console.log("Inserted new user");
+            user.userid = userid;
 
-                // TODO: Insert 401k setup data here 
-                return callback(null, result[0]);
-            }
+            users.insert(user, function(err, result) {
 
-            return callback(err, null);
+                if (!err) {
+                    console.log("Inserted new user");
+                    return callback(null, result[0]);
+                }
+
+                return callback(err, null);
+            });
         });
+
+
     };
 
     this.validateLogin = function(username, password, callback) {
@@ -89,20 +93,24 @@ function UserDAO(db) {
         }, callback);
     };
 
-    this.getNextSequence = function(name) {
+    this.getNextSequence = function(name, callback) {
         var ret = db.collection("counters").findAndModify({
-            query: {
                 _id: name
-            },
-            update: {
+            }, [], {
                 $inc: {
                     seq: 1
                 }
+            }, {
+                new: true
             },
-            new: true
-        });
-        return ret.seq;
+            function(err, object) {
+                callback(object.seq);
+            }
+        );
     };
+
 }
+
+
 
 module.exports.UserDAO = UserDAO;
