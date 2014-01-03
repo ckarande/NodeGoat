@@ -13,11 +13,11 @@ function ContributionsHandler(db) {
 
         var sessionId = req.cookies.session;
 
-        sessionDAO.getUsername(sessionId, function(err, username) {
+        sessionDAO.getUserName(sessionId, function(err, username) {
 
             if (err) return next(err);
 
-            contributionsDAO.getByUsername(username, function(error, contrib) {
+            contributionsDAO.getByUserName(username, function(error, contrib) {
 
                 if (error) return next(error);
 

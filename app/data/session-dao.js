@@ -40,7 +40,7 @@ function SessionDAO(db) {
         });
     };
 
-    this.getUsername = function(sessionId, callback) {
+    this.getUserName = function(sessionId, callback) {
 
         if (!sessionId) {
             callback(new Error("Session not set"), null);

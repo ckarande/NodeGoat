@@ -81,7 +81,7 @@ function UserDAO(db) {
     };
 
 
-    this.getUserByUsername = function(username, callback) {
+    this.getUserByUserName = function(username, callback) {
         users.findOne({
             _id: username,
         }, callback);

@@ -42,14 +42,14 @@ function ContributionsDAO(db) {
         });
     };
 
-    this.getByUsername = function(username, callback) {
+    this.getByUserName = function(username, callback) {
         contributionsDB.findOne({
             _id: username
         }, function(err, contributions) {
 
             if (err) return callback(err, null);
 
-            userDAO.getUserByUsername(username, function(err, user) {
+            userDAO.getByUserName(username, function(err, user) {
 
                 if (err) return callback(err, null);
 

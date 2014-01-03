@@ -69,7 +69,7 @@ function SessionHandler(db) {
 
     this.isLoggedInMiddleware = function(req, res, next) {
         var sessionId = req.cookies.session;
-        session.getUsername(sessionId, function(err, username) {
+        session.getUserName(sessionId, function(err, username) {
 
             if (!err && username) {
                 req.username = username;
@@ -204,7 +204,7 @@ function SessionHandler(db) {
             return res.redirect("/login");
         }
 
-        user.getUserByUsername(req.username, function(err, user) {
+        user.getUserByUserName(req.username, function(err, user) {
 
             if (err) return next(err);
 

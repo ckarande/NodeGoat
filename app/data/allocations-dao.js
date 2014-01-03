@@ -55,8 +55,8 @@ function AllocationsDAO(db) {
                 if (err) return callback(err, null);
 
                 // add user details
-                allocations.username = user._id;
                 allocations.userid = userid;
+                allocations.username = user._id;
                 allocations.firstname = user.firstname;
                 allocations.lastname = user.lastname;
 

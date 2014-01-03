@@ -16,7 +16,7 @@ function ProfileHandler(db) {
 
             if (err) return next(err);
 
-            profile.getByUsername(username, function(error, user) {
+            profile.getByUserName(username, function(error, user) {
 
                 if (error) return next(error);
 

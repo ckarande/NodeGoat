@@ -38,9 +38,9 @@ function ProfileDAO(db) {
         });
     };
 
-    this.getByUsername = function(username, callback) {
+    this.getByUserName = function(userName, callback) {
         users.findOne({
-            username: username
+            username: userName
         }, function(err, user) {
 
             if (err) return callback(err, null);
