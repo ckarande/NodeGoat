@@ -12,7 +12,7 @@ function ProfileHandler(db) {
 
         var sessionId = req.cookies.session;
 
-        session.getUsername(sessionId, function(err, username) {
+        session.getUserName(sessionId, function(err, username) {
 
             if (err) return next(err);
 
@@ -36,7 +36,7 @@ function ProfileHandler(db) {
 
         var sessionId = req.cookies.session;
 
-        session.getUsername(sessionId, function(err, username) {
+        session.getUserName(sessionId, function(err, username) {
 
             if (err) return next(err);
 

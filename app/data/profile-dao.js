@@ -12,19 +12,19 @@ function ProfileDAO(db) {
 
     var users = db.collection("users");
 
-    this.updateUser = function(username, firstname, lastname, ssn, dob, address, callback) {
+    this.updateUser = function(userName, firstName, lastName, ssn, dob, address, callback) {
 
         // Create user document
         var user = {
-            firstname: firstname,
-            lastname: lastname,
+            firstname: firstName,
+            lastname: lastName,
             ssn: ssn,
             dob: dob,
             address: address
         };
 
         users.update({
-            username: username
+            _id: userName
         }, {
             $set: user
         }, function(err, result) {
@@ -39,11 +39,14 @@ function ProfileDAO(db) {
     };
 
     this.getByUserName = function(userName, callback) {
+
+        console.log("userName=" + userName);
         users.findOne({
-            username: userName
+            _id: userName
         }, function(err, user) {
 
             if (err) return callback(err, null);
+            console.log("user=" + user);
 
             callback(null, user);
         });

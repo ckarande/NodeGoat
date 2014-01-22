@@ -49,13 +49,20 @@ function ContributionsDAO(db) {
 
             if (err) return callback(err, null);
 
-            userDAO.getByUserName(username, function(err, user) {
+            // Set defualt contributions if not set
+            contributions = contributions || {
+                pretax: 2,
+                aftertax: 2,
+                roth: 2
+            };
+
+            userDAO.getUserByUserName(username, function(err, user) {
 
                 if (err) return callback(err, null);
 
                 // add user details
-                contributions.username = user.username;
-                contributions.userid = user._id;
+                contributions.username = user._id;
+                contributions.userid = user.userid;
                 contributions.firstname = user.firstname;
                 contributions.lastname = user.lastname;
 

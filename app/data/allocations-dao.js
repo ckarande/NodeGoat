@@ -34,13 +34,27 @@ function AllocationsDAO(db) {
         }, function(err, result) {
 
             if (!err) {
+
                 console.log("Updated allocations");
-                return callback(null, allocations);
+
+                userDAO.getUserById(userid, function(err, user) {
+
+                    if (err) return callback(err, null);
+
+                    // add user details
+                    allocations.userid = userid;
+                    allocations.username = user._id;
+                    allocations.firstname = user.firstname;
+                    allocations.lastname = user.lastname;
+
+                    return callback(null, allocations);
+                });
             }
 
             return callback(err, null);
         });
     };
+
 
     this.getByUserId = function(userid, callback) {
         allocationsDB.findOne({

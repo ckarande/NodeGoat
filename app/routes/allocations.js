@@ -11,7 +11,13 @@ function AllocationsHandler(db) {
 
     this.displayAllocations = function(req, res, next) {
 
-        var userid = req.params.userid;
+        // var userid = eval(req.params.userid);
+
+        var userid = parseInt(req.params.userid);
+
+        if (isNaN(userid)) {
+            return next(new Error("Invalid allocations id"));
+        }
 
         allocationsDAO.getByUserId(userid, function(error, allocations) {
 

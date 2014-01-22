@@ -54,11 +54,11 @@ function ContributionsHandler(db) {
         }
         var sessionId = req.cookies.session;
 
-        sessionDAO.getUsername(sessionId, function(err, username) {
+        sessionDAO.getUserName(sessionId, function(err, userName) {
 
             if (err) return next(err);
 
-            contributionsDAO.update(username, pretax, aftertax, roth, function(err, contributions) {
+            contributionsDAO.update(userName, pretax, aftertax, roth, function(err, contributions) {
 
                 if (err) return next(err);
 
