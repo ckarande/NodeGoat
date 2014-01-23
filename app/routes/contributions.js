@@ -13,11 +13,11 @@ function ContributionsHandler(db) {
 
         var sessionId = req.cookies.session;
 
-        sessionDAO.getUsername(sessionId, function(err, username) {
+        sessionDAO.getUserId(sessionId, function(err, userId) {
 
             if (err) return next(err);
 
-            contributionsDAO.getByUsername(username, function(error, contrib) {
+            contributionsDAO.getByUserId(userId, function(error, contrib) {
 
                 if (error) return next(error);
 
@@ -35,30 +35,30 @@ function ContributionsHandler(db) {
         var aftertax = eval(req.body.aftertax);
         var roth = eval(req.body.roth);
         */
-        
-        var pretax = parseInt(req.body.pretax);
-        var aftertax = parseInt(req.body.aftertax);
+
+        var preTax = parseInt(req.body.preTax);
+        var afterTax = parseInt(req.body.afterTax);
         var roth = parseInt(req.body.roth);
 
         //validate contributions
-        if (isNaN(pretax) || isNaN(aftertax) || isNaN(roth) || pretax < 0 || aftertax < 0 || roth < 0) {
+        if (isNaN(preTax) || isNaN(afterTax) || isNaN(roth) || preTax < 0 || afterTax < 0 || roth < 0) {
             return res.render("contributions", {
                 "updateError": "Invalid contribution percentages"
             });
         }
         // Prevent more than 30% contributions
-        if (pretax + aftertax + roth > 30) {
+        if (preTax + afterTax + roth > 30) {
             return res.render("contributions", {
                 "updateError": "Contribution percentages cannot exceed 30 %"
             });
         }
         var sessionId = req.cookies.session;
 
-        sessionDAO.getUsername(sessionId, function(err, username) {
+        sessionDAO.getUserId(sessionId, function(err, userId) {
 
             if (err) return next(err);
 
-            contributionsDAO.update(username, pretax, aftertax, roth, function(err, contributions) {
+            contributionsDAO.update(userId, preTax, afterTax, roth, function(err, contributions) {
 
                 if (err) return next(err);
 

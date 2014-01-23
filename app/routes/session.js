@@ -10,10 +10,10 @@ function SessionHandler(db) {
 
     this.isLoggedInMiddleware = function(req, res, next) {
         var sessionId = req.cookies.session;
-        session.getUsername(sessionId, function(err, username) {
+        session.getUserId(sessionId, function(err, userId) {
 
-            if (!err && username) {
-                req.username = username;
+            if (!err && userId) {
+                req.userId = userId;
             }
             return next();
         });
@@ -21,7 +21,7 @@ function SessionHandler(db) {
 
     this.displayLoginPage = function(req, res, next) {
         return res.render("login", {
-            username: "",
+            userName: "",
             password: "",
             loginError: ""
         });
@@ -29,23 +29,23 @@ function SessionHandler(db) {
 
     this.handleLoginRequest = function(req, res, next) {
 
-        var username = req.body.username;
+        var userName = req.body.userName;
         var password = req.body.password;
 
-        console.log("user submitted username: " + username + " pass: " + password);
+        console.log("user submitted userName: " + userName + " pass: " + password);
 
-        user.validateLogin(username, password, function(err, user) {
+        user.validateLogin(userName, password, function(err, user) {
 
             if (err) {
                 if (err.noSuchUser) {
                     return res.render("login", {
-                        username: username,
+                        userName: userName,
                         password: "",
                         loginError: "No such user"
                     });
                 } else if (err.invalidPassword) {
                     return res.render("login", {
-                        username: username,
+                        userName: userName,
                         password: "",
                         loginError: "Invalid password"
                     });
@@ -78,17 +78,17 @@ function SessionHandler(db) {
 
     this.displaySignupPage = function(req, res, next) {
         res.render("signup", {
-            username: "",
+            userName: "",
             password: "",
             passwordError: "",
             email: "",
-            usernameError: "",
+            userNameError: "",
             emailError: "",
             verifyError: ""
         });
     };
 
-    function validateSignup(username, firstname, lastname, password, verify, email, errors) {
+    function validateSignup(userName, firstName, lastName, password, verify, email, errors) {
 
         var USER_RE = /^.{1,20}$/;
         var FNAME_RE = /^.{1,100}$/;
@@ -96,24 +96,24 @@ function SessionHandler(db) {
         var PASS_RE = /^.{1,20}$/;
         var EMAIL_RE = /^[\S]+@[\S]+\.[\S]+$/;
 
-        errors.usernameError = "";
-        errors.firstnameError = "";
-        errors.lastnameError = "";
+        errors.userNameError = "";
+        errors.firstNameError = "";
+        errors.lastNameError = "";
 
         errors.passwordError = "";
         errors.verifyError = "";
         errors.emailError = "";
 
-        if (!USER_RE.test(username)) {
-            errors.usernameError = "Invalid username.";
+        if (!USER_RE.test(userName)) {
+            errors.userNameError = "Invalid userName.";
             return false;
         }
-        if (!FNAME_RE.test(firstname)) {
-            errors.firstnameError = "Invalid first name.";
+        if (!FNAME_RE.test(firstName)) {
+            errors.firstNameError = "Invalid first name.";
             return false;
         }
-        if (!LNAME_RE.test(firstname)) {
-            errors.lastnameError = "Invalid last name.";
+        if (!LNAME_RE.test(firstName)) {
+            errors.lastNameError = "Invalid last name.";
             return false;
         }
         if (!PASS_RE.test(password)) {
@@ -136,25 +136,25 @@ function SessionHandler(db) {
     this.handleSignup = function(req, res, next) {
 
         var email = req.body.email;
-        var username = req.body.username;
-        var firstname = req.body.firstname;
-        var lastname = req.body.lastname;
+        var userName = req.body.userName;
+        var firstName = req.body.firstName;
+        var lastName = req.body.lastName;
         var password = req.body.password;
         var verify = req.body.verify;
 
         // set these up in case we have an error case
         var errors = {
-            "username": username,
+            "userName": userName,
             "email": email
         };
 
-        if (validateSignup(username, firstname, lastname, password, verify, email, errors)) {
-            user.addUser(username, firstname, lastname, password, email, function(err, user) {
+        if (validateSignup(userName, firstName, lastName, password, verify, email, errors)) {
+            user.addUser(userName, firstName, lastName, password, email, function(err, user) {
 
                 if (err) {
                     // this was a duplicate
                     if (err.code === "11000") {
-                        errors.usernameError = "Username already in use. Please choose another";
+                        errors.userNameError = "User name already in use. Please choose another";
                         return res.render("signup", errors);
                     }
                     // this was a different error
@@ -179,12 +179,12 @@ function SessionHandler(db) {
 
     this.displayWelcomePage = function(req, res, next) {
 
-        if (!req.username) {
+        if (!req.userId) {
             console.log("welcome: Unable to identify user...redirecting to login");
             return res.redirect("/login");
         }
 
-        user.getUserById(req.username, function(err, user) {
+        user.getUserById(req.userId, function(err, user) {
 
             if (err) return next(err);
 

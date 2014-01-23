@@ -12,11 +12,11 @@ function ProfileHandler(db) {
 
         var sessionId = req.cookies.session;
 
-        session.getUsername(sessionId, function(err, username) {
+        session.getUserId(sessionId, function(err, userId) {
 
             if (err) return next(err);
 
-            profile.getByUsername(username, function(error, user) {
+            profile.getByUserId(userId, function(error, user) {
 
                 if (error) return next(error);
 
@@ -28,19 +28,19 @@ function ProfileHandler(db) {
 
     this.handleProfileUpdate = function(req, res, next) {
 
-        var firstname = req.body.firstname;
-        var lastname = req.body.lastname;
+        var firstName = req.body.firstName;
+        var lastName = req.body.lastName;
         var ssn = req.body.ssn;
         var dob = req.body.dob;
         var address = req.body.address;
 
         var sessionId = req.cookies.session;
 
-        session.getUsername(sessionId, function(err, username) {
+        session.getUserId(sessionId, function(err, userId) {
 
             if (err) return next(err);
 
-            profile.updateUser(username, firstname, lastname, ssn, dob, address, function(err, user) {
+            profile.updateUser(userId, firstName, lastName, ssn, dob, address, function(err, user) {
 
                 if (err) return next(err);
 
