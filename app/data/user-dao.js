@@ -35,7 +35,7 @@ function UserDAO(db) {
 
         this.getNextSequence("userId", function(id) {
 
-            user._id = id;
+            user.userId = id;
 
             users.insert(user, function(err, result) {
 
@@ -79,9 +79,9 @@ function UserDAO(db) {
         }, validateUserDoc);
     };
 
-    this.getUserById = function(_id, callback) {
+    this.getUserById = function(userId, callback) {
         users.findOne({
-            _id: _id
+            userId: userId
         }, callback);
     };
 

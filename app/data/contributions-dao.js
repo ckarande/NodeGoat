@@ -32,7 +32,6 @@ function ContributionsDAO(db) {
 
             if (!err) {
                 console.log("Updated contributions");
-                console.log(contributions);
                 // add user details
                 userDAO.getUserById(userId, function(err, user) {
 
@@ -41,6 +40,7 @@ function ContributionsDAO(db) {
                     contributions.userName = user.userName;
                     contributions.firstName = user.firstName;
                     contributions.lastName = user.lastName;
+                    contributions.userId = userId;
 
                     return callback(null, contributions);
                 });
@@ -73,6 +73,7 @@ function ContributionsDAO(db) {
                 contributions.userName = user.userName;
                 contributions.firstName = user.firstName;
                 contributions.lastName = user.lastName;
+                contributions.userId = userId;
 
                 callback(null, contributions);
             });

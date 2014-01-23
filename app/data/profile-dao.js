@@ -24,7 +24,7 @@ function ProfileDAO(db) {
         };
 
         users.update({
-            _id: userId
+            userId: userId
         }, {
             $set: user
         }, function(err, result) {
@@ -40,7 +40,7 @@ function ProfileDAO(db) {
 
     this.getByUserId = function(userId, callback) {
         users.findOne({
-            _id: userId
+            userId: userId
         }, function(err, user) {
 
             if (err) return callback(err, null);

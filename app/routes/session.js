@@ -1,16 +1,30 @@
-var UserDAO = require("../data/user-dao").UserDAO,
-    SessionDAO = require("../data/session-dao").SessionDAO;
+var UserDAO = require("../data/user-dao").UserDAO;
+var SessionDAO = require("../data/session-dao").SessionDAO;
+var AllocationsDAO = require("../data/allocations-dao").AllocationsDAO;
 
 /* The SessionHandler must be constructed with a connected db */
 function SessionHandler(db) {
     "use strict";
 
-    var user = new UserDAO(db);
-    var session = new SessionDAO(db);
+    var userDAO = new UserDAO(db);
+    var sessionDAO = new SessionDAO(db);
+    var allocationsDAO = new AllocationsDAO(db);
+
+    var prepareUserData = function(user, next) {
+
+        // Generate random allocations
+        var stocks = Math.floor((Math.random() * 40) + 1);
+        var funds = Math.floor((Math.random() * 40) + 1);
+        var bonds = 100 - (stocks + funds);
+
+        allocationsDAO.update(user.userId, stocks, funds, bonds, function(err, allocations) {
+            if (err) return next(err);
+        });
+    };
 
     this.isLoggedInMiddleware = function(req, res, next) {
         var sessionId = req.cookies.session;
-        session.getUserId(sessionId, function(err, userId) {
+        sessionDAO.getUserId(sessionId, function(err, userId) {
 
             if (!err && userId) {
                 req.userId = userId;
@@ -34,7 +48,7 @@ function SessionHandler(db) {
 
         console.log("user submitted userName: " + userName + " pass: " + password);
 
-        user.validateLogin(userName, password, function(err, user) {
+        userDAO.validateLogin(userName, password, function(err, user) {
 
             if (err) {
                 if (err.noSuchUser) {
@@ -55,7 +69,7 @@ function SessionHandler(db) {
                 }
             }
 
-            session.startSession(user._id, function(err, sessionId) {
+            sessionDAO.startSession(user.userId, function(err, sessionId) {
 
                 if (err) return next(err);
 
@@ -68,7 +82,7 @@ function SessionHandler(db) {
     this.displayLogoutPage = function(req, res, next) {
 
         var sessionId = req.cookies.session;
-        session.endSession(sessionId, function(err) {
+        sessionDAO.endSession(sessionId, function(err) {
 
             // Even if the user wasn"t logged in, redirect to home
             res.cookie("session", "");
@@ -105,7 +119,7 @@ function SessionHandler(db) {
         errors.emailError = "";
 
         if (!USER_RE.test(userName)) {
-            errors.userNameError = "Invalid userName.";
+            errors.userNameError = "Invalid user name.";
             return false;
         }
         if (!FNAME_RE.test(firstName)) {
@@ -149,26 +163,30 @@ function SessionHandler(db) {
         };
 
         if (validateSignup(userName, firstName, lastName, password, verify, email, errors)) {
-            user.addUser(userName, firstName, lastName, password, email, function(err, user) {
 
-                if (err) {
-                    // this was a duplicate
-                    if (err.code === "11000") {
-                        errors.userNameError = "User name already in use. Please choose another";
-                        return res.render("signup", errors);
-                    }
-                    // this was a different error
-                    else {
-                        return next(err);
-                    }
+            userDAO.getUserByUserName(userName, function(err, user) {
+
+                if (err) return next(err);
+
+                if (user) {
+                    errors.userNameError = "User name already in use. Please choose another";
+                    return res.render("signup", errors);
                 }
 
-                session.startSession(user._id, function(err, sessionId) {
+                userDAO.addUser(userName, firstName, lastName, password, email, function(err, user) {
 
                     if (err) return next(err);
 
-                    res.cookie("session", sessionId);
-                    return res.redirect("/dashboard");
+                    //prepare data for the user
+                    prepareUserData(user, next);
+
+                    sessionDAO.startSession(user.userId, function(err, sessionId) {
+
+                        if (err) return next(err);
+
+                        res.cookie("session", sessionId);
+                        return res.redirect("/dashboard");
+                    });
                 });
             });
         } else {
@@ -184,7 +202,7 @@ function SessionHandler(db) {
             return res.redirect("/login");
         }
 
-        user.getUserById(req.userId, function(err, user) {
+        userDAO.getUserById(req.userId, function(err, user) {
 
             if (err) return next(err);
 

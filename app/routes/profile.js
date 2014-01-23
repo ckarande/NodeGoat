@@ -45,6 +45,8 @@ function ProfileHandler(db) {
                 if (err) return next(err);
 
                 user.updateSuccess = true;
+                user.userId = userId;
+
                 return res.render("profile", user);
             });
         });

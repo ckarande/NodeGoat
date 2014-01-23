@@ -1,6 +1,7 @@
 var SessionHandler = require("./session");
 var ProfileHandler = require("./profile");
 var ContributionsHandler = require("./contributions");
+var AllocationsHandler = require("./allocations");
 var ErrorHandler = require("./error").errorHandler;
 
 var exports = function(app, db) {
@@ -10,7 +11,7 @@ var exports = function(app, db) {
     var sessionHandler = new SessionHandler(db);
     var profileHandler = new ProfileHandler(db);
     var contributionsHandler = new ContributionsHandler(db);
-
+    var allocationsHandler = new AllocationsHandler(db);
 
     // Middleware to see if a user is logged in
     app.use(sessionHandler.isLoggedInMiddleware);
@@ -39,6 +40,9 @@ var exports = function(app, db) {
     // Contributions Page
     app.get("/contributions", contributionsHandler.displayContributions);
     app.post("/contributions", contributionsHandler.handleContributionsUpdate);
+
+    // Allocations Page
+    app.get("/allocations/:userId", allocationsHandler.displayAllocations);
 
     // Handle redirect for learning resources link
     app.get("/learn", function(req, res, next) {
