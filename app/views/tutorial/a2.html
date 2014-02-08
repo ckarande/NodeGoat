@@ -37,13 +37,14 @@
 
 <!-- accordions -->
 
+
 <div class="panel-group" id="accordion">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          A2 -1 Password Complexity
-        </a>
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"> 
+                  A2 -1 Password Complexity 
+                </a> 
             </h4>
         </div>
         <div id="collapseOne" class="panel-collapse collapse in">
@@ -53,24 +54,27 @@
                         <h3 class="panel-title">Description</h3>
                     </div>
                     <div class="panel-body">
+                        Implementing a robust minimum password criteria (minimum length and complexity) can make it difficult for attacker to guess password.
                     </div>
                 </div>
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Attack Scenario Demo</h3>
-                    </div>
-                    <div class="panel-body">
-                        Screencast showing how attack can manifest in the target application ...
-                    </div>
-                </div>
+                <!--  
+                <div class="panel panel-info"> 
+                    <div class="panel-heading"> 
+                        <h3 class="panel-title">Attack Scenario Demo</h3> 
+                    </div> 
+                    <div class="panel-body"> 
+                        Screencast showing how attack can manifest in the target application ... 
+                    </div> 
+                </div> 
+                -->
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title">Attack Mechanics</h3>
                     </div>
                     <div class="panel-body">
-                        <p>The application doesn't enforce strong password. In routes/session.js the regex for password enforecement is simply
-                            <code>var PASS_RE = /^.{1,20}$/;</code>
-                            <p>
+                        <p>
+                            The attacker can exploit this vulnerability by brute force password guessing, more likely using tools that generate random passwords.
+                        </p>
                     </div>
                 </div>
                 <div class="panel panel-info">
@@ -78,14 +82,36 @@
                         <h3 class="panel-title">How Do I Prevent It?</h3>
                     </div>
                     <div class="panel-body">
-                        Fixed code Snippet + Screencast ...
+                        <p><b>Password length</b>
+                        </p>
+                        <p>Minimum passwords length should be at least eight (8) characters long. Combining this length with complexity makes a password difficult to guess and/or brute force.</p>
+                        <p><b>Password complexity</b>
+                        </p>
+                        <p>Password characters should be a combination of alphanumeric characters. Alphanumeric characters consist of letters, numbers, punctuation marks, mathematical and other conventional symbols.</p>
+                        <p><b>Additional measures</b>
+                        </p>
+                        <p>For additional protection against brute forcing, enforce account disabling after an established number of invalid login attempts (e.g., five attempts is common). The account must be disabled for a period of time sufficient to discourage
+                            brute force guessing of credentials, but not so long as to allow for a denial-of-service attack to be performed.
+                    </div>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Source Code Example</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            The demo application doesn't enforce strong password. In routes/session.js the regex for password enforcement is simply <pre>var PASS_RE = /^.{1,20}$/;</pre>
+                        </p>
+                        <p>
+                            A stronger password can be enforced using the regex below, which requires 8 to 18 character password with numbers and both lowercase and uppercase letters.
+                            <pre>var PASS_RE =/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,18}$/;</pre>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- /Password Complexity -->
-
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
