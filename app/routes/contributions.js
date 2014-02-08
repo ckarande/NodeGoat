@@ -30,17 +30,18 @@ function ContributionsHandler(db) {
 
     this.handleContributionsUpdate = function(req, res, next) {
 
-        /*
         // Code vulnerable to serverside injection attack when used eval
-        var pretax = eval(req.body.pretax);
-        var aftertax = eval(req.body.aftertax);
+        var preTax = eval(req.body.preTax);
+        var afterTax = eval(req.body.afterTax);
         var roth = eval(req.body.roth);
-        */
-
+        
+        /*
+        // Code fixed to prevent injection attacks
         var preTax = parseInt(req.body.preTax);
         var afterTax = parseInt(req.body.afterTax);
         var roth = parseInt(req.body.roth);
         var sessionId = req.cookies.session;
+        */
 
         sessionDAO.getUserId(sessionId, function(err, userId) {
 
