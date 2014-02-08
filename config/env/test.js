@@ -1,5 +1,5 @@
-var testaConfig = {
+var testConfig = {
     port: 5001
 };
 
-module.exports = testaConfig;
+module.exports = testConfig;
