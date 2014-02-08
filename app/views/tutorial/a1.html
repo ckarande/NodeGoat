@@ -17,8 +17,7 @@
                 <h3 class="panel-title">Description</h3>
             </div>
             <div class="panel-body">
-                Injection flaws occur when untrusted data is sent to an interpreter as part of a command or query. The attacker’s hostile data can trick the interpreter into executing unintended commands or accessing data without
-                proper authorization.
+                Injection flaws occur when untrusted data is sent to an interpreter as part of a command or query. The attacker’s hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
             </div>
         </div>
         <!--
@@ -53,7 +52,11 @@
                         <h3 class="panel-title">Description</h3>
                     </div>
                     <div class="panel-body">
-                        When functions such as <code>eval()</code>, <code>setTimeout()</code>, <code>setInterval()</code>, <code>Function()</code> are used to process user provided inputs without sanitizing, it can be exploited by and attacker to inject malicious javascript code on server side.
+                        When
+                        <code>eval()</code>,
+                        <code>setTimeout()</code>,
+                        <code>setInterval()</code>,
+                        <code>Function()</code>are used to process user provided inputs, it can be exploited by an attacker to inject and execute malicious JavaScript code on server.
                     </div>
                 </div>
                 <!--
@@ -72,47 +75,54 @@
                     </div>
                     <div class="panel-body">
                         <p>
-                            Web application using the Javascript eval function to parse the incoming data without any type of input validation are vulnerable to this attack. An attacker can injects arbitrary JavaScript code that will be executed on the server side.
+                            Web application using the JavaScript
+                            <code>eval()</code>function to parse the incoming data without any type of input validation are vulnerable to this attack. An attacker can inject arbitrary JavaScript code that will be executed on the server side. Similarly
+                            <code>setTimeout()</code>, and
+                            <code>setInterval()</code>functions can take code as a first argument causing same issues as
+                            <code>eval()</code>.
                         </p>
 
-                        <p> This vulnerability can be very critical and damaging by allow attacker to send various types of commands. </p>
+                        <p>This vulnerability can be very critical and damaging by allowing attacker to send various types of commands.</p>
 
                         <p>
                             <b>Denial of Service Attack:</b>
                         </p>
                         <p>
-                            An effective denial-of-service attack can be executed simply by sending the commands below to <code>eval()</code> function:
+                            An effective denial-of-service attack can be executed simply by sending the commands below to
+                            <code>eval()</code>function:
                         </p>
- 
+
                         <pre>while(1)</pre>
                         <p>
-                            This attack will cause the target server to use 100% of its processor time and  unable to process any other incoming  requests until process is restarted.
+                            This attack will cause the target server to use 100% of its processor time and unable to process any other incoming requests until process is restarted.
                         </p>
                         <p>
-                            An alternative DoS attack would be to simply exit or kill the running process: 
+                            An alternative DoS attack would be to simply exit or kill the running process:
                             <pre>process.exit()</pre> or <pre>process.kill(process.pid) </pre>
                         </p>
                         <p>
-                            <b>File System Access</b><br/>
+                            <b>File System Access</b>
+                            <br/>
                         </p>
                         <p>
-                            Another potential goal of an attacker might be to read the contents of files from the local system. The following attacks list the contents of the current directory and parent directory respectively: 
+                            Another potential goal of an attacker might be to read the contents of files from the local system. The following attacks list the contents of the current directory and parent directory respectively:
                         </p>
                         <p>
                             <pre>res.end(require('fs').readdirSync('.').toString())</pre>
                             <pre>res.end(require('fs').readdirSync('..').toString()) </pre>
                         </p>
                         <p>
-                            To list the actual contents of a file, the attacker would issue the following command: 
+                            To list the actual contents of a file, the attacker would issue the following command:
                         </p>
                         <p>
                             <pre>res.end(require('fs').readFileSync(filename))</pre>
                         </p>
                         <p>
-                            The attacker can also further exploit this vulnerability by writing and executing harmful binary files using <code>fs</code> and <code>child_process</code> modules.
+                            The attacker can also further exploit this vulnerability by writing and executing harmful binary files using
+                            <code>fs</code>and
+                            <code>child_process</code>modules.
                         </p>
-                        
-                    </p>
+                        </p>
 
 
                     </div>
@@ -124,8 +134,13 @@
                     <div class="panel-body">
                         To prevent server-side js injection attacks:
                         <ul>
-                            <li>Validate user inputs on server side before processing</li> 
-                            <li>Avoid use of the JavaScript <code>eval()</code> function. In particular, when parsing JSON input, use a safer alternative such as <code>JSON.parse()</code>. Avoid using other commands with similar effect, such as <code>setTimeOut()</code>, <code>setInterval()</code>, <code>Function()</code>
+                            <li>Validate user inputs on server side before processing</li>
+                            <li>Forbid use of the
+                                <code>eval()</code>function to parse user inputs. For parsing JSON input, use a safer alternative such as
+                                <code>JSON.parse()</code>. Avoid using other commands with similar effect, such as
+                                <code>setTimeOut()</code>,
+                                <code>setInterval()</code>,
+                                <code>Function()</code>
                             </li>
                         </ul>
                     </div>
