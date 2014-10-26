@@ -49,10 +49,10 @@
             <div class="panel-body">
                 <ol>
                     <li>
-                        <p><b> Input validation and sanitisation:</b> Input validation and data sanitisation are the first line of defense against untrusted data. Apply white list validation wherever possible.</p>
+                        <p><b> Input validation and sanitization:</b> Input validation and data sanitization are the first line of defense against untrusted data. Apply white list validation wherever possible.</p>
                     </li>
                     <li>
-                        <p> <b> Output encoding: </b>While input validation and sanitsation can be performed to help prevent Server XSS, <i>Context-sensitive server side output encoding</i> is absolutely critical for mitigating risk of XSS.</p>
+                        <p> <b> Output encoding: </b>While input validation and sanitization can be performed to help prevent Server XSS, <i>Context-sensitive server side output encoding</i> is absolutely critical for mitigating risk of XSS.</p>
                         <p>When a browser is rendering HTML and any other associated content like CSS, javascript, etc. it follows different rendering rules for each context.
                             <p>Use well tested libraries for encoding output for correct output context, such as <a href="https://www.owasp.org/index.php/Category:OWASP_Enterprise_Security_API#tab=JavaScript" target="_blank">OWASP ESAPI</a> or node modules
                                 wrapping it. Here are the details about applying correct encoding in each context:
