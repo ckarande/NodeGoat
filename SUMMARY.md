@@ -1,6 +1,5 @@
 # Summary
 
-* [Introduction](tutorial/README.md)
 * [A1 - Injection](tutorial/A1.md)
 * [A2-Broken Authentication and Session Management](tutorial/A2.md)
 * [A3-Cross-Site Scripting (XSS)](tutorial/A3.md)
