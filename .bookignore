@@ -1,0 +1,9 @@
+app/*
+artifacts/*
+config/*
+node_modules/*
+app.json
+Gruntfile.js
+Procfile.json
+server.js
+
