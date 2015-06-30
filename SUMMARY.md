@@ -9,7 +9,7 @@
        * [Further Reading](tutorial/A1/ssjs/further_reading.md)
    * [SQL and NoSQL Injection](tutorial/A1/sql_nosql_injection/description.md)
        * [Attack Mechanics](tutorial/A1/sql_nosql_injection/attack_mechanics.md)
-       * [How Do I Prevent It?](tutorial/A1/sql_nosql_injection/how_do_i_prevent_it.md)
+       * [How Do I Prevent It?](tutorial/A1/sql_nosql_injection/howdo_i_prevent_it.md)
 * [A2-Broken Authentication and Session Management](tutorial/A2.md)
 * [A3-Cross-Site Scripting (XSS)](tutorial/A3.md)
 * [A4-Insecure Direct Object References](tutorial/A4.md)
