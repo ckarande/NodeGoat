@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [A1 - Injection](tutorial/A1.md)
-   * [Server Side JS Injection](tutorial/A1/ssjs.md)
+   * [Server Side JS Injection](tutorial/A1/ssjsmd.md)
        * [Source Code Example](tutorial/A1.md)
 * [A2-Broken Authentication and Session Management](tutorial/A2.md)
 * [A3-Cross-Site Scripting (XSS)](tutorial/A3.md)
