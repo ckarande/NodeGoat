@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [A1 - Injection](tutorial/A1.md)
    * [Server Side JS Injection](tutorial/A1/ssjsmd.md)
-       * [Attack Mechanics](tutorial/A1/ssjs/attackMechanics.md)
+       * [Attack Mechanics](tutorial/A1/ssjs/attackmechanicsmd.md)
 * [A2-Broken Authentication and Session Management](tutorial/A2.md)
 * [A3-Cross-Site Scripting (XSS)](tutorial/A3.md)
 * [A4-Insecure Direct Object References](tutorial/A4.md)
