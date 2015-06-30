@@ -4,7 +4,7 @@
 * [A1 - Injection](tutorial/A1.md)
    * [Server Side JS Injection](tutorial/A1/ssjs/description.md)
        * [Attack Mechanics](tutorial/A1/ssjs/attackmechanicsmd.md)
-       * How Do I Prevent It?
+       * [How Do I Prevent It?](how_do_i_prevent_it.md)
 * [A2-Broken Authentication and Session Management](tutorial/A2.md)
 * [A3-Cross-Site Scripting (XSS)](tutorial/A3.md)
 * [A4-Insecure Direct Object References](tutorial/A4.md)
