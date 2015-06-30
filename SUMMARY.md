@@ -7,7 +7,7 @@
        * [How Do I Prevent It?](tutorial/A1/ssjs/how_do_i_prevent_it.md)
        * [Source Code Example](tutorial/A1/ssjs/source_code_example.md)
        * [Further Reading](tutorial/A1/ssjs/further_reading.md)
-    * [SQL and NoSQL Injection](tutorial/A1/sql_nosql_injection/description.md)
+* [SQL and NoSQL Injection](tutorial/A1/sql_nosql_injection/description.md)
        * [Attack Mechanics](tutorial/A1/sql_nosql_injection/attackmechanics.md)
        * [How Do I Prevent It?](tutorial/A1/sql_nosql_injection/how_do_i_prevent_it.md)
 * [A2-Broken Authentication and Session Management](tutorial/A2.md)
