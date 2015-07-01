@@ -28,7 +28,7 @@
    * [Further Reading](tutorial/A3/further_reading.md)
 * [A4-Insecure Direct Object References](tutorial/A4/description.md)
    * [Attack Mechanics](tutorial/A4/attack_mechanic.md)
-   * [How Do I Prevent It?](tutorial/A4/how_do_i_prevent_it)
+   * [How Do I Prevent It?](tutorial/A4/how_do_i_prevent_it.md)
    * [Source Code Example](tutorial/A4/sourcecode_example)
 * [A5-Security Misconfiguration](tutorial/A5/description.md)
    * [Attack Mechanics](tutorial/A5/attack_mechanics.md)
