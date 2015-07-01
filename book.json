@@ -1,5 +1,9 @@
 {
-  "structure": {
-    "readme": "tutorial_intro.md"
-  }
+    "structure": {
+        "readme": "tutorial_intro.md"
+    },
+    "plugins": [
+        "youtubex"
+    ],
+    "pluginsConfig": {}
 }
