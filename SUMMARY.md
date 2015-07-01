@@ -36,7 +36,7 @@
    * [Source Code Example](tutorial/A5/sourcecode_example.md)
 * [A6-Sensitive Data Exposure](tutorial/A6/description.md)
    * [Attack Mechanics](tutorial/A6/attack_mechanics.md)
-   * [How Do I Prevent It?](tutorial/A6/how_do_i_prevent_it.md)
+   * [How Do I Prevent It?](tutorial/A6/sourcecode_example.md)
    * [Source Code Example](tutorial/A6/sourcecode_example.md)
 * [A7-Missing Function Level Access Control](tutorial/A7/descrption)
    * [Attack Mechanics](tutorial/A7/attack_mechanics.md)
