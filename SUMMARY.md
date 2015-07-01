@@ -13,7 +13,7 @@
 * [A2-Broken Authentication and Session Management](tutorial/A2/description.md)
    * [Attack Mechanics](tutorial/A2/attack_mechanics.md)
    * [How Do I Prevent It?](tutorial/A2/howdo_i_prevent_it.md)
-   * [Source Code Example](tutorial/A2/source_code_example)
+   * [Source Code Example](tutorial/A2/sourcecode_example.md)
 * [A3-Cross-Site Scripting (XSS)](tutorial/A3.md)
 * [A4-Insecure Direct Object References](tutorial/A4.md)
 * [A5-Security Misconfiguration](tutorial/A5.md)
