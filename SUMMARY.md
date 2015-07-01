@@ -1,6 +1,4 @@
 # Summary
-
-* [Introduction](README.md)
 * [A1 - Injection](tutorial/A1/description.md)
    * [Server Side JS Injection](tutorial/A1/ssjs/description.md)
        * [Attack Mechanics](tutorial/A1/ssjs/attack_mechanics.md)
