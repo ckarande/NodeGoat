@@ -11,7 +11,7 @@
        * [Attack Mechanics](tutorial/A1/sql_nosql_injection/attack_mechanics.md)
        * [How Do I Prevent It?](tutorial/A1/sql_nosql_injection/howdo_i_prevent_it.md)
 * [A2-Broken Authentication and Session Management](tutorial/A2/description.md)
-   * [Session Management](tutorial/A2/sesssion/description.md)
+   * [Session Management](tutorial/A2/session/description.md)
        * [Attack Mechanics](tutorial/A2/session/attack_mechanics.md)
        * [How Do I Prevent It?](tutorial/A2/session/howdoi_prevent_it.md)
        * [Source Code Example](tutorial/A2/session/sourcecode_example.md)
