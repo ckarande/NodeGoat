@@ -18,7 +18,7 @@
        * [Further Reading](tutorial/A2/session/further_reading.md)
    * [Password Guessing Attack](tutorial/A2/password/description.md)
        * [Attack Mechanics](tutorial/A2/password/attack_mechanics.md)
-       * [How Do I Prevent It?](tutorial/A2/password/howdo_i_prevent_it.md)
+       * [How Do I Prevent It?](tutorial/A2/password/how_do_i_prevent_it.md)
        * [Source Code Example](tutorial/A2/password/sourcecode_example.md)
        * [Further Reading](tutorial/A2/password/further_reading.md)
 * [A3-Cross-Site Scripting (XSS)](tutorial/A3/description.md)
