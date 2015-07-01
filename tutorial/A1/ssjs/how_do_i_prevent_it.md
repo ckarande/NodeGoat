@@ -1,3 +1,5 @@
+How Do I Prevent It?
+===
 To prevent server-side js injection attacks:
 
   * Validate user inputs on server side before processing
