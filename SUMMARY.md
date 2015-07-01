@@ -1,6 +1,6 @@
 # Summary
 
-* [A1 - Injection](tutorial/A1.md)
+* [A1 - Injection](tutorial/A1/description.md)
    * [Server Side JS Injection](tutorial/A1/ssjs/description.md)
        * [Attack Mechanics](tutorial/A1/ssjs/attack_mechanics.md)
        * [How Do I Prevent It?](tutorial/A1/ssjs/how_do_i_prevent_it.md)
