@@ -1,6 +1,6 @@
 # Summary
 
-[Introduction](README.md)
+* [Introduction](README.md)
 * [A1 - Injection](tutorial/A1/description.md)
    * [Server Side JS Injection](tutorial/A1/ssjs/description.md)
        * [Attack Mechanics](tutorial/A1/ssjs/attack_mechanics.md)
@@ -27,7 +27,7 @@
    * [Source Code Example](tutorial/A3/sourcecode_example.md)
    * [Further Reading](tutorial/A3/further_reading.md)
 * [A4-Insecure Direct Object References](tutorial/A4/description.md)
-   * [Attack Mechanics](tutorial/A4/attack_mechanic)
+   * [Attack Mechanics](tutorial/A4/attack_mechanic.md)
    * [How Do I Prevent It?](tutorial/A4/how_do_i_prevent_it)
    * [Source Code Example](tutorial/A4/sourcecode_example)
 * [A5-Security Misconfiguration](tutorial/A5/description.md)
