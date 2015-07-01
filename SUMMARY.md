@@ -38,7 +38,7 @@
    * [Attack Mechanics](tutorial/A6/attack_mechanics.md)
    * [How Do I Prevent It?](tutorial/A6/sourcecode_example.md)
    * [Source Code Example](tutorial/A6/sourcecode_example.md)
-* [A7-Missing Function Level Access Control](tutorial/A7/descrption)
+* [A7-Missing Function Level Access Control](tutorial/A7/descrption.md)
    * [Attack Mechanics](tutorial/A7/attack_mechanics.md)
    * [How Do I Prevent It?](tutorial/A7/how_do_i_prevent_it.md)
    * [Source Code Example](tutorial/A7/sourcecode_example.md)
