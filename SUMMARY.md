@@ -15,7 +15,7 @@
    * [How Do I Prevent It?](tutorial/A2/howdo_i_prevent_it.md)
    * [Source Code Example](tutorial/A2/sourcecode_example.md)
 * [A3-Cross-Site Scripting (XSS)](tutorial/A3/description.md)
-   * [Attack Mechanics](tutorial/A3/attack_mechanics)
+   * [Attack Mechanics](tutorial/A3/attack_mechanics.md)
    * [How Do I Prevent It?](tutorial/A3/howdo_i_prevent_it)
    * [Source Code Example](tutorial/A3/sourcecode_example)
 * [A4-Insecure Direct Object References](tutorial/A4.md)
