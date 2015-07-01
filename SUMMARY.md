@@ -10,7 +10,7 @@
        * [Attack Mechanics](tutorial/A1/sql_nosql_injection/attack_mechanics.md)
        * [How Do I Prevent It?](tutorial/A1/sql_nosql_injection/howdo_i_prevent_it.md)
 * [A2-Broken Authentication and Session Management](tutorial/A2/description.md)
-    * [Attack Mechanics](tutorial/A2/attack_mechanics.md)
+    * [Attack Mechanics](tutorial/A2/attack_mechanics)
     * [How Do I Prevent It?](tutorial/A2/how_do_i_prevent_it.md)
     * [Source Code Example](tutorial/A2/source_code_example.md)
 * [A3-Cross-Site Scripting (XSS)](tutorial/A3.md)
