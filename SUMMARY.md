@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](README.md)
+[Introduction](README.md)
 * [A1 - Injection](tutorial/A1/description.md)
    * [Server Side JS Injection](tutorial/A1/ssjs/description.md)
        * [Attack Mechanics](tutorial/A1/ssjs/attack_mechanics.md)
@@ -9,7 +9,7 @@
        * [Further Reading](tutorial/A1/ssjs/further_reading.md)
    * [SQL and NoSQL Injection](tutorial/A1/sql_nosql_injection/description.md)
        * [Attack Mechanics](tutorial/A1/sql_nosql_injection/attack_mechanics.md)
-       * [How Do I Prevent It?](tutorial/A1/sql_nosql_injection/howdo_i_prevent_it.md)
+       * [How Do I Prevent It?](tutorial/A1/sql_nosql_injection/how_do_i_prevent_it.md)
 * [A2-Broken Authentication and Session Management](tutorial/A2/description.md)
    * [Session Management](tutorial/A2/session/description.md)
        * [Attack Mechanics](tutorial/A2/session/attack_mechanics.md)
