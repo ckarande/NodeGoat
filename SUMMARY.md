@@ -13,7 +13,7 @@
 * [A2-Broken Authentication and Session Management](tutorial/A2/description.md)
    * [Session Management](tutorial/A2/sesssion/description.md)
        * [Attack Mechanics](tutorial/A2/session/attack_mechanics.md)
-       * [How Do I Prevent It?](tutorial/A2/session/howdo_i_prevent_it.md)
+       * [How Do I Prevent It?](tutorial/A2/session/howdoi_prevent_it.md)
        * [Source Code Example](tutorial/A2/session/sourcecode_example.md)
        * [Further Reading](tutorial/A2/session/further_reading.md)
    * [Password Guessing Attack](tutorial/A2/password/description.md)
