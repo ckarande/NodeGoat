@@ -1,3 +1,6 @@
+Attack Mechanics
+===
+
 Web applications using the JavaScript `eval()`function to parse the incoming
 data without any type of input validation are vulnerable to this attack. An
 attacker can inject arbitrary JavaScript code to be executed on the server.
