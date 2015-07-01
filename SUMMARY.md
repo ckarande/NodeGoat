@@ -12,7 +12,7 @@
        * [How Do I Prevent It?](tutorial/A1/sql_nosql_injection/howdo_i_prevent_it.md)
 * [A2-Broken Authentication and Session Management](tutorial/A2/description.md)
    * [Attack Mechanics](tutorial/A2/attack_mechanics.md)
-   * [How Do I Prevent It?](tutorial/A2/how_do_i_prevent_it)
+   * [How Do I Prevent It?](tutorial/A2/howdo_i_prevent_it.md)
    * [Source Code Example](tutorial/A2/source_code_example)
 * [A3-Cross-Site Scripting (XSS)](tutorial/A3.md)
 * [A4-Insecure Direct Object References](tutorial/A4.md)
