@@ -4,6 +4,6 @@ A1 - Injection
 - Prevalence: COMMON 
 - Detectability: AVERAGE 
 - Technical Impact: SEVERE
-- 
 
-[[youtube-krOx9QWwcYw-560x315]]
+{%youtube%}krOx9QWwcYw{%endyoutube%}
+
