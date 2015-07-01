@@ -17,7 +17,7 @@
 * [A3-Cross-Site Scripting (XSS)](tutorial/A3/description.md)
    * [Attack Mechanics](tutorial/A3/attack_mechanics.md)
    * [How Do I Prevent It?](tutorial/A3/howdo_i_prevent_it)
-   * [Source Code Example](tutorial/A3/sourcecode_example)
+   * [Source Code Example](tutorial/A3/sourcecode_example.md)
 * [A4-Insecure Direct Object References](tutorial/A4.md)
 * [A5-Security Misconfiguration](tutorial/A5.md)
 * [A6-Sensitive Data Exposure](tutorial/A6.md)
