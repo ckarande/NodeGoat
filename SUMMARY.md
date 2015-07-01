@@ -1,5 +1,6 @@
 # Summary
 
+* [Introduction](README.md)
 * [A1 - Injection](tutorial/A1/description.md)
    * [Server Side JS Injection](tutorial/A1/ssjs/description.md)
        * [Attack Mechanics](tutorial/A1/ssjs/attack_mechanics.md)
@@ -10,9 +11,9 @@
        * [Attack Mechanics](tutorial/A1/sql_nosql_injection/attack_mechanics.md)
        * [How Do I Prevent It?](tutorial/A1/sql_nosql_injection/howdo_i_prevent_it.md)
 * [A2-Broken Authentication and Session Management](tutorial/A2/description.md)
-    * [Attack Mechanics](tutorial/A2/attack_mechanics)
-    * [How Do I Prevent It?](tutorial/A2/how_do_i_prevent_it.md)
-    * [Source Code Example](tutorial/A2/source_code_example.md)
+   * [Attack Mechanics](tutorial/A2/attackmechanics.md)
+   * [How Do I Prevent It?](tutorial/A2/how_do_i_prevent_it.md)
+   * [Source Code Example](tutorial/A2/source_code_example.md)
 * [A3-Cross-Site Scripting (XSS)](tutorial/A3.md)
 * [A4-Insecure Direct Object References](tutorial/A4.md)
 * [A5-Security Misconfiguration](tutorial/A5.md)
