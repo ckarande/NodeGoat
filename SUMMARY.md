@@ -29,7 +29,7 @@
 * [A4-Insecure Direct Object References](tutorial/A4/description.md)
    * [Attack Mechanics](tutorial/A4/attack_mechanic.md)
    * [How Do I Prevent It?](tutorial/A4/how_do_i_prevent_it.md)
-   * [Source Code Example](tutorial/A4/sourcecode_example)
+   * [Source Code Example](tutorial/A4/sourcecode_example.md)
 * [A5-Security Misconfiguration](tutorial/A5/description.md)
    * [Attack Mechanics](tutorial/A5/attack_mechanics.md)
    * [How Do I Prevent It?](tutorial/A5/how_do_i_prevent_it.md)
