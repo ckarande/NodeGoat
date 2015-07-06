@@ -1,8 +1,8 @@
 # Summary
 
-[Introduction](README.md)
-* [A1 - Injection](tutorial/A1 - Injection)
-   * [Server Side JS Injection](tutorial/A1 - Server Side JS Injection)    
+* [Introduction](README.md)
+* [A1 - Injection](tutorial/a1_-_injection.md)
+   * [Server Side JS Injection](tutorial/A1 - Server Side JS Injection)
    * [SQL and NoSQL Injection](tutorial/A1 - SQL and NoSQL Injection)
 * [A2-Broken Authentication and Session Management](tutorial/A2- Broken Auth)
    * [Session Management](tutorial/A2 - Session Management.md)
@@ -15,4 +15,4 @@
 * [A8-Cross-Site Request Forgery (CSRF)](tutorial/A8 - CSRF)
 * [A9-Using Components with Known Vulnerabilities](tutorial/A9-Using Components with Known Vulnerabilities)
 * [A10-Unvalidated Redirects and Forwards](tutorial/A10-Unvalidated Redirects and Forwards)
- 
+
