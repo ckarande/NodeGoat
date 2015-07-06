@@ -7,7 +7,7 @@
 * [A2-Broken Authentication and Session Management](tutorial/a2-_broken_auth.md)
    * [Session Management](tutorial/A2 - Session Management.md)
    * [Password Guessing Attack](tutorial/A2 - Password Guessing Attack)
-* [A3-Cross-Site Scripting (XSS)](tutorial/A3 - XSS)
+* [A3-Cross-Site Scripting (XSS)](tutorial/a3_-_xss.md)
 * [A4-Insecure Direct Object References](tutorial/A4-Insecure Direct Object References)
 * [A5-Security Misconfiguration](tutorial/A5-Security Misconfiguration)
 * [A6-Sensitive Data Exposure](tutorial/A6-Sensitive Data Exposure)
