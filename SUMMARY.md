@@ -10,7 +10,7 @@
 * [A3-Cross-Site Scripting (XSS)](tutorial/a3_-_xss.md)
 * [A4-Insecure Direct Object References](tutorial/a4-insecure_direct_object_references.md)
 * [A5-Security Misconfiguration](tutorial/a5-security_misconfiguration.md)
-* [A6-Sensitive Data Exposure](tutorial/A6-Sensitive Data Exposure)
+* [A6-Sensitive Data Exposure](tutorial/a6-sensitive_data_exposure.md)
 * [A7-Missing Function Level Access Control](tutorial/A7-Missing Function Level Access Control)
 * [A8-Cross-Site Request Forgery (CSRF)](tutorial/A8 - CSRF)
 * [A9-Using Components with Known Vulnerabilities](tutorial/A9-Using Components with Known Vulnerabilities)
