@@ -14,5 +14,5 @@
 * [A7-Missing Function Level Access Control](tutorial/a7-missing_function_level_access_control.md)
 * [A8-Cross-Site Request Forgery (CSRF)](tutorial/a8_-_csrf.md)
 * [A9-Using Components with Known Vulnerabilities](tutorial/a9-using_components_with_known_vulnerabilities.md)
-* [A10-Unvalidated Redirects and Forwards](tutorial/A10-Unvalidated Redirects and Forwards)
+* [A10-Unvalidated Redirects and Forwards](tutorial/a10-unvalidated_redirects_and_forwards.md)
 
