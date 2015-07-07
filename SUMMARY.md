@@ -12,7 +12,7 @@
 * [A5-Security Misconfiguration](tutorial/a5-security_misconfiguration.md)
 * [A6-Sensitive Data Exposure](tutorial/a6-sensitive_data_exposure.md)
 * [A7-Missing Function Level Access Control](tutorial/A7-Missing Function Level Access Control)
-* [A8-Cross-Site Request Forgery (CSRF)](tutorial/A8 - CSRF)
+* [A8-Cross-Site Request Forgery (CSRF)](tutorial/a8_-_csrf.md)
 * [A9-Using Components with Known Vulnerabilities](tutorial/A9-Using Components with Known Vulnerabilities)
 * [A10-Unvalidated Redirects and Forwards](tutorial/A10-Unvalidated Redirects and Forwards)
 
