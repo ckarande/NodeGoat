@@ -17,7 +17,10 @@ format as a first argument causing same issues as `eval()`.
 This vulnerability can be very critical and damaging by allowing attacker to
 send various types of commands.
 
+
 **Denial of Service Attack:**
+
+{%youtube%}krOx9QWwcYw{%endyoutube%}
 
 An effective denial-of-service attack can be executed simply by sending the
 commands below to `eval()`function:
