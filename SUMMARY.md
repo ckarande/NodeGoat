@@ -1,6 +1,5 @@
 # Summary
 
-* [Introduction](README.md)
 * [A1 - Injection](tutorial/a1_-_injection.md)
    * [Server Side JS Injection](tutorial/a1_-_server_side_js_injection.md)
    * [SQL and NoSQL Injection](tutorial/a1_-_sql_and_nosql_injection.md)
